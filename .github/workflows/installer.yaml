@@ -20,9 +20,9 @@ jobs:
       - name: Install required packages
         run: |
           curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-          apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-          apt-get -y update
-          apt-get -y install qemu-system-arm qemu-user-static binfmt-support bmap-tools kpartx packer
+          sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          sudo apt-get -y update
+          sudo apt-get -y install qemu-system-arm qemu-user-static binfmt-support bmap-tools kpartx packer
 
       - name: Run packer
-        run: packer build builder/main.pkr.hcl
+        run: sudo packer build builder/main.pkr.hcl
