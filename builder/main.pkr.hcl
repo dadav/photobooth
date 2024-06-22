@@ -9,7 +9,7 @@ packer {
 
 variable "target_image_size" {
     type = number
-    default = 6*1024*1024*1024
+    default = 7*1024*1024*1024
 }
 
 source "arm-image" "raspbian" {
