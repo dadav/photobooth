@@ -9,14 +9,13 @@ packer {
 
 variable "target_image_size" {
     type = number
-    default = 3*1024*1024*1024
+    default = 6*1024*1024*1024
 }
 
 source "arm-image" "raspbian" {
     iso_url = "https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64.img.xz"
     iso_checksum = "7e53a46aab92051d523d7283c080532bebb52ce86758629bf1951be9b4b0560f"
     target_image_size = "${var.target_image_size}"
-    output_filename = "../images/raspbian.img"
 }
 
 
