@@ -43,7 +43,7 @@ build {
     provisioner "shell" {
         inline = [
             "apt-get update",
-            "apt-get full-upgrade -y",
+            "apt-get upgrade -y",
         ]
     }
 }
