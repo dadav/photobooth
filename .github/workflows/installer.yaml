@@ -25,4 +25,6 @@ jobs:
           sudo apt-get -y install qemu-system-arm qemu-user-static binfmt-support bmap-tools kpartx packer
 
       - name: Run packer
-        run: sudo packer build builder/main.pkr.hcl
+        run: |
+          sudo packer init builder/main.pkr.hcl
+          sudo packer build builder/main.pkr.hcl
