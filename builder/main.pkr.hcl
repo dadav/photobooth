@@ -45,6 +45,7 @@ build {
             "apt-get update",
             "apt-get upgrade -y",
             "wget -O install-photobooth.sh https://raw.githubusercontent.com/PhotoboothProject/photobooth/dev/install-photobooth.sh",
+            "sed -i '/systemctl enable/d' install-photobooth.sh",
             "bash install-photobooth.sh -username='pi' -silent",
         ]
     }
