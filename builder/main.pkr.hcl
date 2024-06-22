@@ -26,7 +26,7 @@ build {
 
     # copy files into the image
     provisioner "file" {
-        source = "overlay"
+        source = "${path.root}/overlay"
         destination = "/tmp/"
     }
 
