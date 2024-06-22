@@ -44,6 +44,8 @@ build {
         inline = [
             "apt-get update",
             "apt-get upgrade -y",
+            "wget -O install-photobooth.sh https://raw.githubusercontent.com/PhotoboothProject/photobooth/dev/install-photobooth.sh"
+            "bash install-photobooth.sh -username='pi'"
         ]
     }
 }
