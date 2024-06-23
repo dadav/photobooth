@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo packer init builder/main.pkr.hcl
           sudo packer build builder/main.pkr.hcl
-          sudo mv builder/output-raspbian/image photobooth-raspbian.img
+          sudo mv output-raspbian/image photobooth-raspbian.img
           sudo sha256sum photobooth-raspbian.img > photobooth-raspbian.sha256
           sudo zip -s2g photobooth-raspbian.zip photobooth-raspbian.sha256 photobooth-raspbian.img
       - uses: ncipollo/release-action@v1
