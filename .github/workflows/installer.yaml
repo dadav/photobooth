@@ -13,6 +13,8 @@ on:
 jobs:
   build-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -28,3 +30,10 @@ jobs:
         run: |
           sudo packer init builder/main.pkr.hcl
           sudo packer build builder/main.pkr.hcl
+          sudo mv builder/output-raspbian/image photobooth-raspbian.img
+          sudo sha256sum photobooth-raspbian.img > photobooth-raspbian.sha256
+          sudo zip -s2g photobooth-raspbian.zip photobooth-raspbian.sha256 photobooth-raspbian.img
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "photobooth-raspbian.z*"
+          body: foo
